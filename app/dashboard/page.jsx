@@ -1,0 +1,24 @@
+import Image from "next/image"
+import React from "react"
+import Content from "@/components/panel/content";
+import HeaderPanel from "@/components/panel/header";
+import { cookies } from 'next/headers';
+
+const getjobs = async (myCookie) => {
+    const posts = await fetch(`https://api.webofen.com/api/getjobs/${myCookie}`, { cache: "no-store" });
+    return posts.json();
+}
+const Page = async () => {
+    const cookieStore = cookies();
+    const myCookie = cookieStore.get('userToken');
+    const jobs = await getjobs(myCookie.value);
+    console.log(jobs)
+    return (
+        <div className="bg-white container w-4/6 mx-auto h-full">
+            <HeaderPanel />
+            <Content jobs={jobs}/>
+        </div>
+    );
+}
+export default Page;
+
