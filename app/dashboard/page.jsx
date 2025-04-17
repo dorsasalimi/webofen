@@ -14,7 +14,7 @@ const Page = async () => {
     const jobs = await getjobs(myCookie.value);
     console.log(jobs)
     return (
-        <div className="bg-white container w-4/6 mx-auto h-full">
+        <div className="bg-white container md:w-4/6 md:mx-auto h-full">
             <HeaderPanel />
             <Content jobs={jobs}/>
         </div>

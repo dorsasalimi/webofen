@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from "react";
 import Taskbox from '../taskbox';
 import ProgressList from '../progress';
-const Backlink = ({ backlinks }) => {
+const Content = ({ backlinks }) => {
     const [selected, setSelected] = useState('bazarpanel.com');
     const options = ['bazarpanel.com', 'ansarion.com', 'markazpanel.com'];
     const [showModal, setShowModal] = useState(false);
@@ -46,7 +46,7 @@ const Backlink = ({ backlinks }) => {
             <div className="flex">
                 <div className=" w-1/3 text-end rounded-md ">
                     <div className="bg-white text-black rounded-t-lg h-full flex justify-center items-end">
-                        <span className="font-semibold pt-4 text-gray-700">بک لینک ها</span>
+                        <span className="font-semibold pt-4 text-gray-700">محتوا</span>
                     </div>
                 </div>
                 <div className=" w-1/3">
@@ -119,4 +119,4 @@ const Backlink = ({ backlinks }) => {
     )
 }
 
-export default Backlink
+export default Content;
