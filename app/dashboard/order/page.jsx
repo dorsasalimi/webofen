@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import HeaderPanel from '@/components/panel/header'
 import Orders from '@/components/panel/orders'

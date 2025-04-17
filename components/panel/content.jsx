@@ -14,13 +14,12 @@ import Security from './tablet/security';
 import Seo from './tablet/seo';
 import Spam from './tablet/spam';
 
-// Media query hook to detect mobile screen
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const checkScreen = () => {
-      setIsMobile(window.innerWidth < 768); // Tailwind 'md' breakpoint
+      setIsMobile(window.innerWidth < 768);
     };
 
     checkScreen();
@@ -55,12 +54,11 @@ const PanelContent = ({ jobs }) => {
 
   return (
     <div className="flex flex-wrap justify-between bg-zinc-100 w-full mb-20 overflow-hidden">
-      {/* Sidebar */}
       <div className={`z-30 md:order-first order-last ${isMobile ? 'fixed bottom-0 w-full' : 'w-1/12 static'} bg-white`}>
         {isMobile ? (
           <Swiper
             direction="horizontal"
-            slidesPerView={3}
+            slidesPerView={5}
             spaceBetween={20}
             freeMode={true}
             pagination={{ clickable: true }}
@@ -110,8 +108,6 @@ const PanelContent = ({ jobs }) => {
           </div>
         )}
       </div>
-
-      {/* Main Content */}
       <div className="w-full md:w-11/12 p-4 md:px-16 py-4">
         {sections[activeSection]}
       </div>
