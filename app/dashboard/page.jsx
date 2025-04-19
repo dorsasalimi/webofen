@@ -1,6 +1,7 @@
 import Image from "next/image"
 import React from "react"
-import Content from "@/components/panel/content";
+import Content from "@/components/panel/dashboardcontent";
+import Dashboardcontent from "@/components/panel/dashboardcontent";
 import HeaderPanel from "@/components/panel/header";
 import { cookies } from 'next/headers';
 
@@ -16,7 +17,7 @@ const Page = async () => {
     return (
         <div className="bg-white container md:w-4/6 md:mx-auto h-full">
             <HeaderPanel />
-            <Content jobs={jobs}/>
+            <Dashboardcontent jobs={jobs}/>
         </div>
     );
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from "react";
 import Taskbox from '../taskbox';
 import ProgressList from '../progress';
-const Spam = ({ backlinks }) => {
+const Spam = ({ spam }) => {
     const [selected, setSelected] = useState('bazarpanel.com');
     const options = ['bazarpanel.com', 'ansarion.com', 'markazpanel.com'];
     const [showModal, setShowModal] = useState(false);
@@ -61,7 +61,7 @@ const Spam = ({ backlinks }) => {
             <div className="bg-white h-auto text-white w-full rounded-b-lg rounded-tl-lg text-end p-1 md:p-8">
                 <div className="flex mt-4">
 
-                    {Array.isArray(backlinks) && backlinks.map((item) => (
+                    {Array.isArray(spam) && spam.map((item) => (
                         item.status === 0 ? (
                         <button onClick={() => handleclick(item.id)} key={item.id}>
                         <svg className="animate-bounce " xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="-46.08 -46.08 604.16 604.16"><path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" /><path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" /><path fill="#5e5483" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /><path fill="#634c76" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /></svg>
@@ -79,7 +79,6 @@ const Spam = ({ backlinks }) => {
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
                     <div className="bg-white rounded-2xl shadow-xl w-[90%] max-w-md p-6 relative">
-                        {/* ضربدر بستن */}
                         <button
                             onClick={() => setShowModal(false)}
                             className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-2xl"

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import React from "react"
-import Content from "./content";
+import Content from "./dashboardcontent";
 const sidebar = () => {
     return (
         <div className="bg-white w-4/6 m-auto h-full sm:m-0">

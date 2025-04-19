@@ -29,8 +29,7 @@ const useIsMobile = () => {
 
   return isMobile;
 };
-
-const PanelContent = ({ jobs }) => {
+const dashboardcontent = ({ jobs }) => {
   const [activeSection, setActiveSection] = useState("backlink");
   const isMobile = useIsMobile();
 
@@ -118,4 +117,4 @@ const PanelContent = ({ jobs }) => {
   );
 };
 
-export default PanelContent;
+export default dashboardcontent;
