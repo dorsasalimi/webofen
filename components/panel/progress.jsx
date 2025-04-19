@@ -3,6 +3,11 @@ import { CircularProgressbarWithChildren, buildStyles } from "react-circular-pro
 import "react-circular-progressbar/dist/styles.css";
 
 const ProgressCircle = ({ datetime }) => {
+
+
+
+
+  
   // Convert input strings to Date objects
   const start = new Date(datetime);
   console.log(start);
@@ -19,6 +24,7 @@ const ProgressCircle = ({ datetime }) => {
     <div className="bg-white h-auto  w-full rounded-b-lg rounded-tl-lg text-end py-6 px-2 md:p-8 flex justify-evenly">
       <div className='text-black text-justify text-sm'>
         <p>تمدید قرص</p>
+        <a href="">
         <span className='text-[#252476] flex items-center'>مشاهده جزئیات
           <svg
             className='w-6'
@@ -35,7 +41,7 @@ const ProgressCircle = ({ datetime }) => {
               />
             </g>
           </svg></span>
-
+          </a>
       </div>
       <div className="w-24 h-24">
 

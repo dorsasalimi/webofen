@@ -26,7 +26,7 @@ export default function ProductTable({ data, token }) {
         const token = document.getElementById("token").value;
         // ساختن آرایه‌ای از محصولات که قرار است ارسال شوند
         const orderData = data.map((product) => ({
-            slug: product.title_slug, // اسلاگ محصول
+            slug: product.slug, // اسلاگ محصول
             quantity: productQuantities[product.id] || 1, // تعداد انتخابی
             price: product.price * (productQuantities[product.id] || 1), // قیمت کل
             token: token
