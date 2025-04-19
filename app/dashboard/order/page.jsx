@@ -1,33 +1,59 @@
-'use client'
-import React from 'react'
-import HeaderPanel from '@/components/panel/header'
-import Orders from '@/components/panel/orders'
-import Accounting from '@/components/panel/accounting';
-import Ticketing from '@/components/panel/Ticketing';
-import TabButtons from '@/components/panel/Tabbutton';
+"use client";
+import HeaderPanel from "@/components/panel/header";
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Cookies from "js-cookie";
-const page = () => {
-    const router = useRouter();
-    const [mytoken, setmytoken] = useState();
+import ProductTable from "@/components/panel/producttable";
+const Orders = ({ token }) => {
+    const [value, setValue] = useState(null);
+    const [data, setdata] = useState([]);
+
     useEffect(() => {
-        const token = Cookies.get("userToken");
-        if (token) {
-            setmytoken(token);
-        } else {
-            router.push("/");
-        }
-    }, []);
-
+        if (!token) return;
+        setValue(token);
+    }, [token]);
+    useEffect(() => {
+        if (!value) return;
+        readorder(value);
+    }, [value]);
+    const readorder = async (value) => {
+        const res2 = await fetch(`https://api.webofen.com/api/readorder/${value}/`, {
+            method: "GET"
+        });
+        const data = await res2.json();
+        setdata(data);
+    }
     return (
-        <div className="bg-white container w-4/6 mx-auto h-full">
-            <HeaderPanel />
-            <div className="flex flex-wrap justify-between bg-zinc-100 w-full">
+                <div className="bg-white container md:w-4/6 md:mx-auto h-full">
 
+        <HeaderPanel />
+
+        <div className="h-screen bg-gray-100 p-6">
+        <div className="flex justify-end">
+            <div className="flex w-fit md:w-56">
+               
             </div>
         </div>
+        <div className="flex">
+            <div className=" w-1/3 text-end rounded-md ">
+                <div className="bg-white text-black rounded-t-lg h-full flex justify-center items-end">
+                    <span className="font-semibold pt-4 text-gray-700">لیست سفارشات</span>
+                </div>
+            </div>
+            <div className=" w-1/3">
+            </div>
+            <div className=" w-1/3 text-end rounded-md ">
+            </div>
+        </div>
+        <div className="flex flex-wrap justify-start">
+            <div className="bg-white text-black  w-1/3 text-center p-1">
+            </div>
+        </div>
+        <div className="bg-white h-auto text-white w-full rounded-b-lg rounded-tl-lg text-end p-4 md:p-8">
+            <ProductTable data={data} token={token}/>
+        </div>
+        
+    </div>
+</div>
     )
 }
 
-export default page
+export default Orders

@@ -1,6 +1,5 @@
 import Image from "next/image"
 import React from "react"
-import Content from "@/components/panel/dashboardcontent";
 import Dashboardcontent from "@/components/panel/dashboardcontent";
 import HeaderPanel from "@/components/panel/header";
 import { cookies } from 'next/headers';

@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import Image from 'next/image';
+import HeaderPanel from '@/components/panel/header';
 
 const Accounting = () => {
   const fakemali = [
@@ -8,7 +9,11 @@ const Accounting = () => {
     { id: 2, subject: "محتوا", status: "انجام شده", price: "643,000" , src:"/image/services/content.png"}
   ];
   return (
-    <div className='h-screen'>
+    <div className="bg-white container md:w-4/6 md:mx-auto h-full">
+
+    <HeaderPanel />
+
+    <div className="h-screen bg-gray-100 p-6">
     <div className="flex justify-end">
         <div className="flex w-fit md:w-56">
            
@@ -60,6 +65,8 @@ const Accounting = () => {
       </div>
       </div>
     </div>
+    </div>
+
   )
 }
 
