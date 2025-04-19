@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Partials/Header";
-import Clinic from "@/components/clinic/motion";
-import TimingModal from "@/components/clinic/TimingModal";
-import Reserveup from "@/components/Partials/reserveup";
+import Reservup from "@/components/Partials/reservup";
 const getdata = async () => {
   const data = await fetch(`https://api.webofen.com/api/category/services`, { cache: "no-store" });
   return data.json();
@@ -87,7 +85,7 @@ const Page = async ({ params }) => {
             </section>
           </div>
 
-          <Reserveup/>
+          <Reservup/>
 
         </div>
       </main>

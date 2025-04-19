@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay,FreeMode, Pagination } from 'swiper/modules';
 
 import Backlink from './tablet/Backlink';
 import Cluster from './tablet/cluster';
@@ -60,9 +60,12 @@ const PanelContent = ({ jobs }) => {
             direction="horizontal"
             slidesPerView={5}
             spaceBetween={20}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             freeMode={true}
-            pagination={{ clickable: true }}
-            modules={[FreeMode, Pagination]}
+            modules={[FreeMode,Autoplay]}
             className="mySwiper"
           >
             {services.map((service, index) => (

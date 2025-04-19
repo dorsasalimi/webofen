@@ -1,5 +1,5 @@
 'use client'
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Clinic from "@/components/clinic/motion";
 import TimingModal from "@/components/clinic/TimingModal";
@@ -49,16 +49,15 @@ const Reserveup = () => {
             <TimingModal />
           </div>
         </div>
-        <div className="flex items-center justify-center fixed bottom-5 md:hidden bg-[#4d76c4] rounded-full p-6">
+        <div className="flex items-center fixed bottom-0 md:hidden rounded-full w-full z-20">
           <button
             onClick={toggleReserve}
             className="md:hidden z-20 relative"
           >
-            <svg className="w-6 h-6" width="256" height="256" viewBox="-1.76 -1.76 19.52 19.52" xmlns="http://www.w3.org/2000/svg" fill="white" stroke="#white"><path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/></svg>
-
+            <Image width={420} height={200} src='/image/reserve.png'></Image>
           </button>
         </div>
-      </div>
+        </div>
     </>
   );
 };
