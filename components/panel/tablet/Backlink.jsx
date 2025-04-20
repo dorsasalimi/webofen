@@ -60,16 +60,18 @@ const Backlink = ({ backlinks }) => {
                 </div>
             </div>
             <div className="bg-white h-auto text-white w-full rounded-b-lg rounded-tl-lg text-end p-1 md:p-8">
-                <div className="flex mt-4">
+                <div className="mt-4">
 
                     {Array.isArray(backlinks) && backlinks.map((item) => (
                         item.status === '0' ? (
-                        <button onClick={() => handleclick(item.id)} key={item.id}>
-                        <svg className="animate-bounce " xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="-46.08 -46.08 604.16 604.16"><path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" /><path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" /><path fill="#5e5483" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /><path fill="#634c76" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /></svg>
-                        </button>
-                                        ) : (
-                    <ProgressList datetime={item.datetime} key={item.id} />
-                    )
+                            <button onClick={() => handleclick(item.id)} key={item.id}>
+                                <svg className="animate-bounce " xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="-46.08 -46.08 604.16 604.16"><path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" /><path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" /><path fill="#5e5483" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /><path fill="#634c76" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /></svg>
+                            </button>
+                        ) : (
+                            <div className='block mt-2'>
+                                <ProgressList datetime={item.datetime} key={item.id} />
+                            </div>
+                        )
                     ))}
 
                 </div>

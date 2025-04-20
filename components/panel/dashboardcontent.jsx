@@ -88,13 +88,13 @@ const dashboardcontent = ({ jobs }) => {
             ))}
           </Swiper>
         ) : (
-          <div className="flex flex-col items-center gap-2 pt-4">
+          <div className="flex flex-col items-center gap-2 ">
             {services.map((service, index) => (
               <div
                 key={index}
                 onClick={() => setActiveSection(service.id)}
-                className={`w-full flex flex-col items-center cursor-pointer py-3 ${
-                  activeSection === service.id ? 'bg-zinc-200' : ''
+                className={`w-full flex flex-col items-center cursor-pointer py-3 rounded-r-md ${
+                  activeSection === service.id ? 'bg-zinc-100' : ''
                 }`}
               >
                 <Image

@@ -2,12 +2,8 @@ import React from "react";
 import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const ProgressCircle = ({ datetime }) => {
+const ProgressCircle = ({ datetime, backlinks }) => {
 
-
-
-
-  
   // Convert input strings to Date objects
   const start = new Date(datetime);
   console.log(start);
@@ -21,9 +17,9 @@ const ProgressCircle = ({ datetime }) => {
   const percentage = (elapsed / totalDuration) * 100;
 
   return (
-    <div className="bg-white h-auto  w-full rounded-b-lg rounded-tl-lg text-end py-6 px-2 md:p-8 flex justify-evenly">
-      <div className='text-black text-justify text-sm'>
-        <p>تمدید قرص</p>
+    <div className="bg-white h-auto  w-full rounded-b-lg rounded-tl-lg text-end py-6 px-2 md:p-8 flex md:justify-between justify-evenly">
+      <div className='text-black text-justify text-sm mr-10'>
+        <p className="text-black"></p>
         <a href="">
         <span className='text-[#252476] flex items-center'>مشاهده جزئیات
           <svg
@@ -43,7 +39,7 @@ const ProgressCircle = ({ datetime }) => {
           </svg></span>
           </a>
       </div>
-      <div className="w-24 h-24">
+      <div className="md:ml-20 md:w-40 md:h-40 w-24 h-24">
 
         <CircularProgressbarWithChildren
 
@@ -53,7 +49,7 @@ const ProgressCircle = ({ datetime }) => {
             trailColor: '#eeeeee',
           })}
         >
-          <svg className="animate-bounce md:w-32" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="-46.08 -46.08 604.16 604.16"><path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" /><path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" /><path fill="#0164ae" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /><path fill="#0164ae" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /></svg>
+          <svg className="md:w-32 w-12" xmlns="http://www.w3.org/2000/svg" height="30" viewBox="-46.08 -46.08 604.16 604.16"><path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" /><path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" /><path fill="#0164ae" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /><path fill="#0164ae" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" /></svg>
           <div className="text-xs text-center text-black font-semibold">
             {Math.round(percentage)}%
           </div>
