@@ -4,8 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 function HeaderPanel() {
+    // State to toggle the menu visibility
     const [isMenuVisible, setIsMenuVisible] = useState(false);
 
+    // Toggle menu visibility on icon click
     const toggleMenu = () => {
         setIsMenuVisible(!isMenuVisible);
     };
