@@ -3,7 +3,7 @@ import "swiper/css";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Link from "next/link";
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css/pagination';
 
 export default function Blogcar({ posts }) {
@@ -12,9 +12,11 @@ export default function Blogcar({ posts }) {
             <Swiper
                 slidesPerView={2}
                 spaceBetween={10}
-                pagination={{
-                    clickable: true,
-                }}
+           
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
@@ -33,8 +35,8 @@ export default function Blogcar({ posts }) {
                         spaceBetween: 20,
                     },
                 }}
-                modules={[Pagination]}
-                className="mySwiper">
+                modules={[Autoplay ]}
+                className="mySwiper h-96">
                 {
                     posts.map((post, i) => (
                         <div key={i} className='p-3 rounded-md items-center bg-slate-200 mt-2'>

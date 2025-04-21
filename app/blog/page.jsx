@@ -27,8 +27,8 @@ export async function generateMetadata() {
 const blog = async () => {
   const data = await getdata();
   return (
-    <main className="min-h-screen">
-      <div className="flex container mx-auto py-8 px-44 bg-slate-100">
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+      <div className="flex container md:mx-auto py-8 md:px-44 ">
         <div className="w-2/3 h-[800px] bg-[#f9f8f6]">
           <Header />
           <section className='p-4'>

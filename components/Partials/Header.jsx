@@ -16,7 +16,7 @@ const Header = () => {
         document.getElementById("navigation").style.display = "none";
       }
     return (
-        <div className="flex justify-between container p-4">
+        <div className="flex justify-between  container p-4">
             <div className="w-1/4 relative">
                 <Link href="/">
                 <Image src="/image/logo.png" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
@@ -59,10 +59,16 @@ const Header = () => {
         </div>
         <div className='flex items-center'>
                 <button onClick={openmenu} className="md:hidden z-10 relative px-2">
-                <svg className='w-6 h-6' viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="#000"><path d="M19 3.32h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2ZM8 3.32H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2ZM19 14.32h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2ZM8 14.32H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2Z"/></g></svg>
-                </button>
+                <svg className='w-6 h-6' viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g stroke="currentColor" strokeWidth={1.5}>
+                                    <path d="M19 3.32h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2ZM8 3.32H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2ZM19 14.32h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2ZM8 14.32H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2Z"/>
+                                </g>
+                            </svg>
+                       </button>
                     </div>
+                    <div className='flex items-center'>
         <AvatarWithCart />
+        </div>
         </div>
         </div>
     )
