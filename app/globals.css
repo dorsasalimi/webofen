@@ -341,3 +341,48 @@ article ol li{
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+.siren-spin {
+  animation: spin 2.5s linear infinite;
+  transform-origin: center;
+}
+
+.siren-ray {
+  animation: rayPulse 1.5s infinite ease-in-out alternate;
+  transform-origin: center;
+}
+
+.siren-core {
+  animation: coreFlash 1s infinite ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rayPulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes coreFlash {
+  0%, 100% {
+    fill: #F44336; /* Red */
+    filter: drop-shadow(0 0 3px rgba(244, 67, 54, 0.7));
+  }
+  50% {
+    fill: #FF9800; /* Orange */
+    filter: drop-shadow(0 0 5px rgba(255, 152, 0, 0.9));
+  }
+}
