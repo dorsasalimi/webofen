@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import { Autoplay,FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 
 import Backlink from './tablet/Backlink';
 import Cluster from './tablet/cluster';
@@ -29,7 +29,8 @@ const useIsMobile = () => {
 
   return isMobile;
 };
-const dashboardcontent = ({ jobs }) => {
+
+const DashboardContent = ({ jobs }) => {
   const [activeSection, setActiveSection] = useState("backlink");
   const isMobile = useIsMobile();
 
@@ -43,78 +44,91 @@ const dashboardcontent = ({ jobs }) => {
   };
 
   const services = [
-    { id: 'backlink', label: 'بک لینک', icon: '/image/services/backlink.png' },
-    { id: 'content', label: 'محتوا', icon: '/image/services/content.png' },
-    { id: 'security', label: 'امنیت', icon: '/image/services/security.png' },
-    { id: 'cluster', label: 'کلاستر', icon: '/image/services/cluster.png' },
-    { id: 'seo', label: 'سئو', icon: '/image/services/rankup.png' },
-    { id: 'spam', label: 'اسپم', icon: '/image/services/spamscore.png' },
+    { id: 'backlink', label: 'بک لینک', icon: '/image/services/backlink.png', color: 'white' },
+    { id: 'content', label: 'محتوا', icon: '/image/services/content.png', color: 'from-emerald-400 to-emerald-600' },
+    { id: 'security', label: 'امنیت', icon: '/image/services/security.png', color: 'from-red-400 to-red-600' },
+    { id: 'cluster', label: 'کلاستر', icon: '/image/services/cluster.png', color: 'from-amber-400 to-amber-600' },
+    { id: 'seo', label: 'سئو', icon: '/image/services/rankup.png', color: 'from-purple-400 to-purple-600' },
+    { id: 'spam', label: 'اسپم', icon: '/image/services/spamscore.png', color: 'from-pink-400 to-pink-600' },
   ];
 
   return (
-    <div className="flex flex-wrap justify-between bg-zinc-100 w-full mb-20 overflow-hidden">
-      <div className={`z-30 md:order-first order-last ${isMobile ? 'fixed bottom-0 w-full' : 'w-1/12 static'} bg-white`}>
-        {isMobile ? (
+    <div className="flex flex-col md:flex-row relative bg-gray-100">
+      {/* Sidebar for desktop */}
+      <div className={`${isMobile ? 'hidden' : 'block'} md:w-44 bg-white`}>
+
+        <div className="pr-2">
+          {services.map((service, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveSection(service.id)}
+              className={`w-full flex items-center space-x-3 space-x-reverse p-3 mb-2 rounded-r-xl transition-all duration-300 ${
+                activeSection === service.id 
+                  ? ` text-blue-950 shadow-r-md bg-gray-100` 
+                  : 'hover:bg-gray-300 text-gray-700'
+              }`}
+            >
+              <div className={`flex-shrink-0 p-2 rounded-lg ${
+                activeSection === service.id ? 'bg-white bg-opacity-20' : 'bg-gray-200'
+              }`}>
+                <Image
+                  width={28}
+                  height={28}
+                  src={service.icon}
+                  alt={service.label}
+                  className={activeSection === service.id ? '' : 'opacity-70'}
+                />
+              </div>
+              <span className="text-sm font-medium">{service.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main content */}
+      <div className="flex-1 overflow-hidden">
+        <div className="p-6">
+          {sections[activeSection]}
+        </div>
+      </div>
+
+      {/* Mobile navigation */}
+      {isMobile && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
           <Swiper
-            direction="horizontal"
-            slidesPerView={5}
-            spaceBetween={20}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            slidesPerView={4}
+            spaceBetween={0}
             freeMode={true}
-            modules={[FreeMode,Autoplay]}
-            className="mySwiper"
+            modules={[FreeMode]}
+            className="py-2"
           >
             {services.map((service, index) => (
-              <SwiperSlide key={index}>
-                <div
+              <SwiperSlide key={index} className="flex items-center justify-center">
+                <button
                   onClick={() => setActiveSection(service.id)}
-                  className={`w-full flex flex-col items-center cursor-pointer py-4 ${
-                    activeSection === service.id ? 'bg-zinc-200' : ''
+                  className={`flex items-center justify-center flex-col  p-2 rounded-lg ${
+                    activeSection === service.id ? `text-blue-950 shadow-r-md bg-gray-100` : ''
                   }`}
                 >
-                  <Image
-                    className="rotate-[20deg]"
-                    width={50}
-                    height={50}
-                    src={service.icon}
-                    alt={service.label}
-                  />
-                  <p className="text-[10px] md:text-sm">{service.label}</p>
-                </div>
+                  <div className={`p-2 rounded-full ${
+                    activeSection === service.id ? 'bg-white bg-opacity-20' : 'bg-gray-300'
+                  }`}>
+                    <Image
+                      width={24}
+                      height={24}
+                      src={service.icon}
+                      alt={service.label}
+                    />
+                  </div>
+                  <span className="text-xs mt-1">{service.label}</span>
+                </button>
               </SwiperSlide>
             ))}
           </Swiper>
-        ) : (
-          <div className="flex flex-col items-center gap-2 ">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                onClick={() => setActiveSection(service.id)}
-                className={`w-full flex flex-col items-center cursor-pointer py-3 rounded-r-md ${
-                  activeSection === service.id ? 'bg-zinc-100' : ''
-                }`}
-              >
-                <Image
-                  className="rotate-[20deg]"
-                  width={50}
-                  height={50}
-                  src={service.icon}
-                  alt={service.label}
-                />
-                <p className="text-[10px] md:text-sm">{service.label}</p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <div className="w-full md:w-11/12 p-4 md:px-16 py-4">
-        {sections[activeSection]}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default dashboardcontent;
+export default DashboardContent;

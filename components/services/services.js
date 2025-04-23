@@ -9,7 +9,7 @@ export default function Services() {
             <img className="h-24 rounded-full bgset drop-shadow-md " src="/image/services/backlink.png"></img>
             <div className="pt-5 mr-2">
               <h4 className="text-xl mt2 text-orange-800">بک لینک</h4>
-              <p className="mt-2 text-xs text-zinc-400">Backlink Building</p>
+              <p className="mt-2 text-xs text-zinc-400">Backlink </p>
             </div>
           </div>
           <div className="p-2 text-xs text-justify text-gray-600">

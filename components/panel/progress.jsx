@@ -19,7 +19,7 @@ const ProgressCircle = ({ datetime }) => {
 
   
   return (
-    <div className="bg-white h-auto  w-full rounded-b-lg rounded-tl-lg text-end py-6 px-2 md:p-8 flex md:justify-between justify-evenly">
+    <div className="bg-white h-auto inline-block rounded-b-lg rounded-tl-lg text-end py-6 px-2 md:p-8  md:justify-between justify-evenly">
 
       <div className="md:ml-20 md:w-40 md:h-40 w-24 h-24">
 

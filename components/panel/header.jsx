@@ -13,7 +13,7 @@ function HeaderPanel() {
     };
 
     return (
-        <div className="flex">
+        <div className="flex bg-white rounded-2xl shadow-md overflow-hidden">
             <div className="w-3/12 flex justify-center items-center rounded-tl-xl p-1 md:p-6">
                 <button onClick={toggleMenu}>
                     <svg className="text-center w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +28,7 @@ function HeaderPanel() {
                             </g>
                         </g>
                     </svg>
+                    
                 </button>
                 <svg className='w-6 h-6 md:w-8 md:h-8 mr-4' viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g fill="#ffbe32">
@@ -65,17 +66,12 @@ function HeaderPanel() {
             <div className="bg-white w-6/12 flex rounded-br-xl justify-center p-3">
                 <Image width={200} height={50} src={"/image/logo.png"} />
             </div>
-            <div className="bg-white w-3/12 items-center md:justify-end justify-evenly flex rounded-br-xl md:p-6">
-                <svg width={30} height={30} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path opacity="0.4" d="M12 22.01C17.5228 22.01 22 17.5329 22 12.01C22 6.48716 17.5228 2.01001 12 2.01001C6.47715 2.01001 2 6.48716 2 12.01C2 17.5329 6.47715 22.01 12 22.01Z" fill="#292D32"></path>
-                        <path d="M12 6.93994C9.93 6.93994 8.25 8.61994 8.25 10.6899C8.25 12.7199 9.84 14.3699 11.95 14.4299C11.98 14.4299 12.02 14.4299 12.04 14.4299C12.06 14.4299 12.09 14.4299 12.11 14.4299C12.12 14.4299 12.13 14.4299 12.13 14.4299C14.15 14.3599 15.74 12.7199 15.75 10.6899C15.75 8.61994 14.07 6.93994 12 6.93994Z" fill="#292D32"></path>
-                        <path d="M18.7807 19.36C17.0007 21 14.6207 22.01 12.0007 22.01C9.3807 22.01 7.0007 21 5.2207 19.36C5.4607 18.45 6.1107 17.62 7.0607 16.98C9.7907 15.16 14.2307 15.16 16.9407 16.98C17.9007 17.62 18.5407 18.45 18.7807 19.36Z" fill="#292D32"></path>
-                    </g>
-                </svg>
-            </div>
+            <div className="w-3/12 flex justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 p-1 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white flex items-center justify-center text-sm shadow-sm overflow-hidden">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>        
+
+      </div>
         </div>
     );
 }

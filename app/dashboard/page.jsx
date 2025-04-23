@@ -14,9 +14,15 @@ const Page = async () => {
     const jobs = await getjobs(myCookie.value);
     console.log(jobs)
     return (
-        <div className="bg-white container md:w-4/6 md:mx-auto h-full">
-            <HeaderPanel />
-            <Dashboardcontent jobs={jobs}/>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative">
+            <div className="md:w-6/12 mx-auto px-4 py-6 max-w-7xl">
+            <div className="animate-fadeIn z-40">
+                    <HeaderPanel />
+                </div>
+                <div className="mt-6 relative rounded-2xl shadow-lg overflow-hidden glass-effect hover-scale animate-slideInRight z-0">
+                    <Dashboardcontent jobs={jobs}/>
+                </div>
+        </div>
         </div>
     );
 }
