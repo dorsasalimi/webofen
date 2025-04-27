@@ -25,13 +25,8 @@ export default async function Home() {
           <div className="container overflow-hidden p-4">
             <Sliderbox />
           </div>
-          <div className="container">
-            <h2 className="text-xl px-4 text-[#252476]">خدمات وبوفن</h2>
-            <div className="container flex flex-wrap p-2">
-              <Services />
-            </div>
-          </div>
-          <div className="container my-14 px-4 md:px-6">
+
+          <div className="container mb-14 px-4 md:px-6">
             <div className="flex items-center mb-4">
               <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
               <h2 className="text-2xl font-bold text-gray-800">داستان ما</h2>
@@ -42,7 +37,7 @@ export default async function Home() {
               </p>
             </div>
             {/*path section*/}
-            <div className="py-16  pb-32">
+            <div className="py-16 pb-32">
               <div className="w-11/12 m-auto">
                 <h2 className="text-2xl font-bold text-[#13274F] text-center mb-20">فرآیند سئو در مسیر وبوفن</h2>
                 <div className="relative">
@@ -315,7 +310,6 @@ export default async function Home() {
           </div>
 
           <Emergency />
-
         </div>
         <Reserveup />
       </div>
