@@ -8,6 +8,7 @@ import Header from "@/components/Partials/Header";
 import Reserveup from "@/components/Partials/reservup";
 import Emergency from "@/components/Partials/emergency";
 
+
 const lastpost = async () => {
   const posts = await fetch("https://api.webofen.com/api/getlastpost/6/blog", { cache: "no-store" });
   return posts.json();
@@ -18,7 +19,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-
+<div>salam</div>
       <div className="flex flex-wrap container mx-auto md:py-8 md:px-48 lg:px-48 z-0 relative">
         <div className="md:w-2/3 bg-white w-full rounded-lg  transition-all duration-300 ">
           <Header />
