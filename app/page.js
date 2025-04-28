@@ -19,14 +19,14 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
 
-      <div className="flex flex-wrap container mx-auto md:py-8 md:px-44 lg:px-40 z-0 relative">
+      <div className="flex flex-wrap container mx-auto md:py-8 md:px-48 lg:px-48 z-0 relative">
         <div className="md:w-2/3 bg-white w-full rounded-lg  transition-all duration-300 ">
           <Header />
           <div className="container overflow-hidden p-4">
             <Sliderbox />
           </div>
-
-          <div className="container mb-14 px-4 md:px-6">
+          <Services />
+          <div className="container mt-8 mb-14 px-4 md:px-6">
             <div className="flex items-center mb-4">
               <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
               <h2 className="text-2xl font-bold text-gray-800">داستان ما</h2>
@@ -38,7 +38,7 @@ export default async function Home() {
             </div>
             {/*path section*/}
             <div className="py-16 pb-32">
-              <div className="w-11/12 m-auto">
+              <div>
                 <h2 className="text-2xl font-bold text-[#13274F] text-center mb-20">فرآیند سئو در مسیر وبوفن</h2>
                 <div className="relative">
                   <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-1 bg-[#df6823] z-0"></div>
