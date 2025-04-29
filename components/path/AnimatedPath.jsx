@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const AnimatedPath = () => {
@@ -28,23 +28,48 @@ const AnimatedPath = () => {
   // Transform scroll progress to path height
   const pathHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+
   return (
-    <div className="py-16 pb-32" ref={containerRef}>
+    <div className="md:py-16 md:pb-32 pb-10" ref={containerRef}>
       <div className="w-11/12 m-auto">
-        <h2 className="text-2xl font-bold text-[#13274F] text-center mb-20">فرآیند سئو در مسیر وبوفن</h2>
+        <h2 className="text-2xl font-bold text-[#13274F] text-center mb-20 leading-10">
+          <span>فرآیند </span>
+          <motion.span
+            className="inline-block text-red-400"
+            variants={{
+              hidden: { y: 0 },
+              visible: (i) => ({
+                y: [0, -5, 5, -5, 0],
+                transition: {
+                  delay: i * 0.1,
+                  duration: 1,
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  ease: 'easeInOut',
+                },
+              }),
+            }}
+            initial="hidden"
+            whileInView="visible"
+            custom={0}
+          >
+            خــوب
+          </motion.span>
+          <span> شدن در وبوفن</span>
+        </h2>
         <div className="relative">
           {/* Static background line */}
           <div className="absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 w-1 bg-gray-200 z-0"></div>
-          
+
           {/* Animated progress line */}
-          <motion.div 
+          <motion.div
             className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 bg-[#df6823] z-0 origin-top"
             style={{ height: pathHeight }}
           />
-          
+
           <div className="space-y-16">
             {/* Step 1 */}
-            <motion.div 
+            <motion.div
               ref={step1Ref}
               initial={{ opacity: 0, x: -50 }}
               animate={step1InView ? { opacity: 1, x: 0 } : {}}
@@ -52,7 +77,7 @@ const AnimatedPath = () => {
               className="relative flex items-center justify-between"
             >
               <div className="w-5/12 left-timeline">
-                <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="md:p-6 p-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[#df6823]/10 rounded-full flex items-center justify-center">
                       <span className="text-[#13274F] font-bold">
@@ -76,22 +101,22 @@ const AnimatedPath = () => {
                         </svg>
                       </span>
                     </div>
-                    <h3 className="text-md font-bold text-[#13274F]">ویزیت وبسایت</h3>
+                    <h3 className=" text-[12px] md:text-base font-bold text-[#13274F]">ویزیت وبسایت</h3>
                   </div>
-                  <p className="text-gray-600">آماده سازی مشکلات و ایرادات فنی</p>
+                  <p className="text-gray-600 md:text-base text-[12px]">آماده سازی مشکلات و ایرادات فنی</p>
                 </div>
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={step1InView ? { scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="absolute left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
+                className="absolute left-[47%] md:left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
               ></motion.div>
               <div className="w-5/12"></div>
             </motion.div>
-            
+
             {/* Step 2 */}
-            <motion.div 
+            <motion.div
               ref={step2Ref}
               initial={{ opacity: 0, x: 50 }}
               animate={step2InView ? { opacity: 1, x: 0 } : {}}
@@ -99,14 +124,14 @@ const AnimatedPath = () => {
               className="relative flex items-center justify-between"
             >
               <div className="w-5/12"></div>
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={step2InView ? { scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="absolute left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
+                className="absolute left-[47%] md:left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
               ></motion.div>
               <div className="w-5/12 right-timeline">
-                <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="md:p-6 p-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[#df6823]/10 rounded-full flex items-center justify-center">
                       <span className="text-[#13274F] font-bold">
@@ -130,15 +155,15 @@ const AnimatedPath = () => {
                         </svg>
                       </span>
                     </div>
-                    <h3 className="text-md font-bold text-[#13274F]">جلسه مشاوره</h3>
+                    <h3 className="text-md md:text-base font-bold text-[12px]  text-[#13274F]">جلسه مشاوره</h3>
                   </div>
-                  <p className="text-gray-600">ارائه گزارشات کامل و تجویز نسخه</p>
+                  <p className="text-gray-600 md:text-base text-[12px] ">ارائه گزارشات کامل و تجویز نسخه</p>
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Step 3 */}
-            <motion.div 
+            <motion.div
               ref={step3Ref}
               initial={{ opacity: 0, x: -50 }}
               animate={step3InView ? { opacity: 1, x: 0 } : {}}
@@ -146,7 +171,7 @@ const AnimatedPath = () => {
               className="relative flex items-center justify-between"
             >
               <div className="w-5/12 left-timeline">
-                <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="md:p-6 p-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[#df6823]/10 rounded-full flex items-center justify-center">
                       <span className="text-[#13274F] font-bold">
@@ -172,22 +197,22 @@ const AnimatedPath = () => {
                         </svg>
                       </span>
                     </div>
-                    <h3 className="text-md font-bold text-[#13274F]">خرید قرص ها</h3>
+                    <h3 className="text-md font-bold  md:text-base text-[12px] text-[#13274F]">خرید قرص ها</h3>
                   </div>
-                  <p className="text-gray-600">تجویز شده توسط کارشناسان</p>
+                  <p className="text-gray-600 md:text-base text-[12px] ">تجویز شده توسط کارشناسان</p>
                 </div>
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={step3InView ? { scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="absolute left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
+                className="absolute left-[47%] md:left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
               ></motion.div>
               <div className="w-5/12"></div>
             </motion.div>
-            
+
             {/* Step 4 */}
-            <motion.div 
+            <motion.div
               ref={step4Ref}
               initial={{ opacity: 0, x: 50 }}
               animate={step4InView ? { opacity: 1, x: 0 } : {}}
@@ -195,14 +220,14 @@ const AnimatedPath = () => {
               className="relative flex items-center justify-between"
             >
               <div className="w-5/12"></div>
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={step4InView ? { scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="absolute left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
+                className="absolute left-[47%] md:left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
               ></motion.div>
               <div className="w-5/12 right-timeline">
-                <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="md:p-6 p-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[#df6823]/10 rounded-full flex items-center justify-center">
                       <span className="text-[#13274F] font-bold">
@@ -223,15 +248,15 @@ const AnimatedPath = () => {
                         </svg>
                       </span>
                     </div>
-                    <h3 className="text-md font-bold text-[#13274F]">مصرف به موقع</h3>
+                    <h3 className="text-md font-bold md:text-base text-[12px]  text-[#13274F]">مصرف به موقع</h3>
                   </div>
-                  <p className="text-gray-600">قرص ها مطابق با دستور کارشناس</p>
+                  <p className="text-gray-600 md:text-base text-[12px] ">قرص ها مطابق با دستور کارشناس</p>
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Step 5 */}
-            <motion.div 
+            <motion.div
               ref={step5Ref}
               initial={{ opacity: 0, x: -50 }}
               animate={step5InView ? { opacity: 1, x: 0 } : {}}
@@ -239,7 +264,7 @@ const AnimatedPath = () => {
               className="relative flex items-center justify-between"
             >
               <div className="w-5/12 left-timeline">
-                <div className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="md:p-6 p-2 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[#df6823]/10 rounded-full flex items-center justify-center">
                       <span className="text-[#13274F] font-bold">
@@ -286,16 +311,16 @@ const AnimatedPath = () => {
                         </svg>
                       </span>
                     </div>
-                    <h3 className="text-md font-bold text-[#13274F]">دریافت گزارش</h3>
+                    <h3 className="text-md font-bold md:text-base text-[12px]  text-[#13274F]">دریافت گزارش</h3>
                   </div>
-                  <p className="text-gray-600">فعالیت های انجام شده در پنل کاربری</p>
+                  <p className="text-gray-600 md:text-base text-[12px] ">فعالیت های انجام شده در پنل کاربری</p>
                 </div>
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={step5InView ? { scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.3 }}
-                className="absolute left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
+                className="absolute left-[47%] md:left-[49%] transform -translate-x-1/2 w-4 h-4 bg-[#df6823] rounded-full"
               ></motion.div>
               <div className="w-5/12"></div>
             </motion.div>

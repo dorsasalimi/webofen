@@ -11,7 +11,8 @@
   "dependencies": {
     "flowbite": "^2.5.1",
     "js-cookie": "^3.0.5",
-    "motion": "^12.7.5",
+    "motion": "^12.9.2",
+    "motion-plus": "^0.1.6",
     "next": "^14.2.5",
     "react": "^18",
     "react-circular-progressbar": "^2.2.0",

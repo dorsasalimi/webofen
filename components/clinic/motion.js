@@ -10,7 +10,7 @@ export default function Clinic() {
       let clinic = document.getElementById("clinic");
       let lights = document.getElementById("lights");
       document.getElementById("rotation").classList.add('rotating');
-      sun.style.top = window.scrollY / 10 + 10 + "px";
+      sun.style.top = window.scrollY / 10 + 5 + "px";
       sun.style.left = window.scrollY / 8 + 5 + "px";
       bg.style.backgroundPositionX = "-" + window.scrollY / 6 - 5 + "px";
       clinic.style.opacity = window.scrollY / 1500;

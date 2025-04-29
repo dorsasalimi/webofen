@@ -25,7 +25,7 @@ const Reserveup = () => {
 
   return (
     <>
-      <div className="md:w-1/3 h-fit md:sticky top-0 p-2 md:p-0 md:pt-1 ">
+      <div>
         <div
           className={`
             md:w-full md:h-auto bg-[#162832] z-30 transition-transform duration-300 ease-in-out

@@ -9,27 +9,27 @@ const getdata = async () => {
 }
 export async function generateMetadata() {
   return {
-      title: ``,
-      description: '',
-      keywords: '',
-      charSet: "utf-8",
-      applicationName: "",
-      generator: "Nextjs",
-      robots: {
-          index: true,
-          follow: true,
-          nocache: true,
-      }, alternates: {
-          canonical: `https://webofen.com/blog`,
-      }
+    title: ``,
+    description: '',
+    keywords: '',
+    charSet: "utf-8",
+    applicationName: "",
+    generator: "Nextjs",
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+    }, alternates: {
+      canonical: `https://webofen.com/blog`,
+    }
   };
 }
 const blog = async () => {
   const data = await getdata();
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-      <div className="flex container md:mx-auto py-8 md:px-44 ">
-        <div className="w-2/3 h-[800px] bg-[#f9f8f6]">
+    <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <div className="flex flex-wrap container mx-auto md:py-8 md:px-48 lg:px-48 z-0 relative">
+        <div className="md:w-2/3 bg-white w-full rounded-lg  transition-all duration-300 ">
           <Header />
           <section className='p-4'>
             <div className='flex justify-between items-center p-3'>
@@ -40,7 +40,7 @@ const blog = async () => {
             </div>
             <div className='flex flex-wrap'>
               {data.posts.map((item, i) => (
-                <div className='relative w-1/2 p-1'>
+                <div className='relative w-full md:w-1/2 p-1'>
                   <Link href={`blog/${item.title_slug}`}>
                     <Image className="rounded-xl" width={400} height={200} src={`https://api.webofen.com/${item.image_big}`} />
                     <div className='flex items-center rounded-xl absolute h-[60%] hover:h-[80%] hover:opacity-95 transition-all w-[98%] opacity-75 bg-gradient-to-t from-[#000] to-transparent bottom-1'>
@@ -71,7 +71,7 @@ const blog = async () => {
                 </div>
               ))}
 
-              <div className='relative w-1/2 p-1'>
+              <div className='relative w-full md:w-1/2 p-1'>
                 <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
                 <div className='flex items-center rounded-xl absolute h-[60%] hover:h-[80%] hover:opacity-95 transition-all w-[98%] opacity-75 bg-gradient-to-t from-[#000] to-transparent bottom-1'>
                   <div className='absolute flex items-center bottom-5 right-5 w-[70%]'>
@@ -98,7 +98,7 @@ const blog = async () => {
                   </div>
                 </div>
               </div>
-              <div className='relative w-1/2 p-1'>
+              <div className='relative w-full md:w-1/2 p-1'>
                 <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
                 <div className='flex items-center rounded-xl absolute h-[60%] hover:h-[80%] hover:opacity-95 transition-all w-[98%] opacity-75 bg-gradient-to-t from-[#000] to-transparent bottom-1'>
                   <div className='absolute flex items-center bottom-5 right-5 w-[70%]'>
@@ -125,8 +125,8 @@ const blog = async () => {
                   </div>
                 </div>
               </div>
-              <div className='relative w-1/2 p-1'>
-                <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
+              <div className='relative w-full md:w-1/2 p-1'>
+              <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
                 <div className='flex items-center rounded-xl absolute h-[60%] hover:h-[80%] hover:opacity-95 transition-all w-[98%] opacity-75 bg-gradient-to-t from-[#000] to-transparent bottom-1'>
                   <div className='absolute flex items-center bottom-5 right-5 w-[70%]'>
                     <h2 className='text-gray-100 leading-7'>از سئوی محلی چه مید آیا درست است که این واقعا انید؟!</h2>
@@ -152,8 +152,8 @@ const blog = async () => {
                   </div>
                 </div>
               </div>
-              <div className='relative w-1/2 p-1'>
-                <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
+              <div className='relative w-full md:w-1/2 p-1'>
+              <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
                 <div className='flex items-center rounded-xl absolute h-[60%] hover:h-[80%] hover:opacity-95 transition-all w-[98%] opacity-75 bg-gradient-to-t from-[#000] to-transparent bottom-1'>
                   <div className='absolute flex items-center bottom-5 right-5 w-[70%]'>
                     <h2 className='text-gray-100'>از سئوی محلی چه مید آیا واقعا انید؟!</h2>
@@ -179,8 +179,8 @@ const blog = async () => {
                   </div>
                 </div>
               </div>
-              <div className='relative w-1/2 p-1'>
-                <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
+              <div className='relative w-full md:w-1/2 p-1'>
+              <Image className="rounded-xl" width={400} height={200} src="/image/Group-72.png" />
                 <div className='flex items-center rounded-xl absolute h-[60%] hover:h-[80%] hover:opacity-95 transition-all w-[98%] opacity-75 bg-gradient-to-t from-[#000] to-transparent bottom-1'>
                   <div className='absolute flex items-center bottom-5 right-5 w-[70%]'>
                     <h2 className='text-gray-100'>از سئوی محلی چه مید آیا واقعا انید؟!</h2>
@@ -209,7 +209,7 @@ const blog = async () => {
             </div>
           </section>
         </div>
-        <div className="w-1/3 h-screen sticky top-0 pl-10">
+        <div className="md:w-1/3 w-full md:sticky top-0 md:pl-10">
           <Pillsec />
         </div>
       </div>
