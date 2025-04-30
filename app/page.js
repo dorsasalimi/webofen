@@ -33,13 +33,13 @@ export default async function Home() {
               <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
               <h2 className="text-2xl font-bold text-gray-800">داستان ما</h2>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="scale" delay={0.3} className="container bg-blue-50 rounded-lg p-6 mb-6">
               <p className="text-gray-700 leading-relaxed">
                 وبوفن یک فروشگاه ماژولار خدمات سئو است که مطابق با نیاز مشتریان پکیج های مفیدی را برای بهینه سازی به شما معرفی می کند. این سامانه به صاحبان کسب و کار قدرت انتخاب می دهد تا مسیر رشد و پیشرفت خودشان را مدیریت کنند و با دریافت مشاوره از تیم ما بهترین گزینه را برای رسیدن به اهداف خودشان انتخاب کنند. اما چرا وبوفن؟!
               </p>
             </AnimatedSection>
-            
+
             {/*path section*/}
             <AnimatedPath />
           </div>
@@ -47,7 +47,7 @@ export default async function Home() {
             <span className="w-2/3 h-1 bg-black "></span>
             <div className="flex justify-between md:px-4 mb-6">
               <div className="flex items-center ">
-              <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
+                <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
                 <h2 className="text-xl text-[#252476] ">جدیدترین مقالات</h2>
               </div>
               <AnimatedSection animation="fadeIn" delay={0.4} className="inline-block">
@@ -78,7 +78,7 @@ export default async function Home() {
           <div className="container ">
             <div className="flex justify-between md:px-4 mb-6">
               <div className="flex items-center ">
-              <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
+                <div className="w-1 h-6 bg-blue-600 rounded-full ml-2 mr-3"></div>
                 <h2 className="text-xl text-[#252476] ">ویدئوهای آموزشی</h2>
               </div>
               <a href="/videos" class="relative inline-flex items-center px-8 pr-3 overflow-hidden text-sm text-indigo-600 border-1 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
@@ -107,7 +107,7 @@ export default async function Home() {
           <div>
 
           </div>
-
+          <Emergency />
         </div>
         <div className="md:w-1/3 h-fit md:sticky top-0 p-2 md:p-0 md:pt-1">
           <Reserveup />

@@ -32,21 +32,36 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  const addToCart = (slug) => {
-    setCart((prevCart) => {
-      const existingProduct = prevCart.find((item) => item.slug === slug);
-      if (existingProduct) {
-        return prevCart.map((item) =>
-          item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        return [...prevCart, { slug, quantity: 1 }];
+  const addToCart = async (slug) => {
+    const userToken = Cookies.get('userToken');
+    
+    if (userToken) {
+      try {
+        await fetch(`https://api.webofen.com/api/setorder/${userToken}/${slug}`, { 
+          method: 'GET' 
+        });
+        
+        setCart((prevCart) => {
+          const existingProduct = prevCart.find((item) => item.slug === slug);
+          if (existingProduct) {
+            return prevCart.map((item) =>
+              item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
+            );
+          } else {
+            return [...prevCart, { slug, quantity: 1 }];
+          }
+        });
+        
+        fetchCartFromServer(userToken);
+      } catch (error) {
+        console.error('Error adding item to cart:', error);
       }
-    });
+    }
   };
   const removeItem = (slug) => {
-    const updatedCart = cartItems.filter(item => item !== slug);
+    const updatedCart = cartItems.filter(item => item.slug !== slug);
     setCart(updatedCart);
+
   };
   return (
     <CartContext.Provider value={{ cartItems , addToCart,removeItem }}>

@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { Fragment } from 'react';
 import { useState } from "react";
 import Taskbox from '../taskbox';
 import ProgressList from '../progress';
@@ -60,34 +61,35 @@ const Backlink = ({ backlinks }) => {
                 </div>
             </div>
             <div className="bg-white h-auto text-white w-full rounded-b-lg rounded-tl-lg text-end p-1 md:p-8 shadow">
-    <div className="mt-4 flex flex-col gap-4">
-        <div  className="flex justify-between items-center text-black bg-gray-50 p-4 rounded-lg shadow-sm">
-        {Array.isArray(backlinks) && backlinks.map((item) => (
-            <>
-                <div key={item.id} className="text-sm text-right">
-                    <p className="text-gray-700 font-semibold">{item.siteurl}</p>
-                    <p className="text-gray-600">{item.keyword}</p>
-                </div>
-                {item.status !== '0' && <ProgressList datetime={item.datetime} />}
-            </>
-            ))}
-            </div>
+                <div className="mt-4 flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 text-black bg-gray-50 p-4 rounded-lg shadow-sm">
+                        {Array.isArray(backlinks) && backlinks.map((item) => (
+                            <div key={item.id} className="flex justify-between items-center">
+                                <div className="text-sm text-right">
+                                    <p className="text-gray-700 font-semibold">{item.siteurl}</p>
+                                    <p className="text-gray-600">{item.keyword}</p>
+                                </div>
+                                {item.status !== '0' && <ProgressList datetime={item.datetime} />}
+                            </div>
+                        ))}
+                    </div>
 
-        {/* Bouncing pill */}
-        {backlinks.find(item => item.status === '0') && (
-            <div className="flex justify-center w-full mt-6">
-                <button onClick={() => handleclick(backlinks.find(item => item.status === '0').id)}>
-                    <svg className="animate-bounce" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="-46.08 -46.08 604.16 604.16">
-                        <path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" />
-                        <path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" />
-                        <path fill="#5e5483" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" />
-                        <path fill="#634c76" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" />
-                    </svg>
-                </button>
+
+                    {/* Bouncing pill */}
+                    {backlinks.find(item => item.status === '0') && (
+                        <div className="flex justify-center w-full mt-6">
+                            <button onClick={() => handleclick(backlinks.find(item => item.status === '0').id)}>
+                                <svg className="animate-bounce" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="-46.08 -46.08 604.16 604.16">
+                                    <path fill="#DFDFE1" d="M479.587 188.925c43.218-43.221 43.218-113.29 0-156.512-43.221-43.218-113.292-43.218-156.513 0L32.413 323.075c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0z" />
+                                    <path fill="#CFCDD2" d="M479.587 32.414 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l290.663-290.662c43.218-43.221 43.218-113.29 0-156.511" />
+                                    <path fill="#5e5483" d="m177.743 177.745-145.33 145.33c-43.218 43.221-43.216 113.29.002 156.512 43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" />
+                                    <path fill="#634c76" d="M255.999 256 32.414 479.587c43.219 43.218 113.29 43.218 156.51 0l145.331-145.331z" />
+                                </svg>
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
-        )}
-    </div>
-</div>
             <Taskbox />
 
             {showModal && (
@@ -105,14 +107,14 @@ const Backlink = ({ backlinks }) => {
                             placeholder="لینک صفحه فرود"
                             value={formData.field1}
                             onChange={handleChange}
-                            className="w-full mb-3 p-2 border rounded-lg"/>
+                            className="w-full mb-3 p-2 border rounded-lg" />
                         <input
                             type="text"
                             name="field2"
                             placeholder="کلمه کلیدی"
                             value={formData.field2}
                             onChange={handleChange}
-                            className="w-full mb-4 p-2 border rounded-lg"/>
+                            className="w-full mb-4 p-2 border rounded-lg" />
                         <button
                             onClick={handleSubmit}
                             className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 ">
